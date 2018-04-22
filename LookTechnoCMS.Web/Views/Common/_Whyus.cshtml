@@ -1,0 +1,19 @@
+﻿@model LookTechnoCMS.Web.Models.CellSettingViewModel
+           
+@{
+
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+@if (culture == "en-us")
+{
+    <h3 class="media-heading text-right">Why us ?</h3>
+
+    <p class="whyp psize palign">@Model.Description</p>
+}
+else
+{
+    <h3 class="media-heading text-right">لماذا نحن ؟</h3>
+
+    <p class="whyp palign">@Model.DescriptionAr</p>
+}
+

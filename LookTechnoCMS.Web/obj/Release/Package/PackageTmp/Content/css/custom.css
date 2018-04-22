@@ -1,0 +1,135 @@
+/* here you can put your own css to customize and override the theme */
+
+.k-window-content{
+    overflow: hidden !important;
+}
+.k-window-titlebar  {
+    background-color: white !important;
+   
+      border-bottom-style: solid!important;
+    border-bottom-width: 1px!important;
+}
+.portlet-margin {
+    margin-bottom: 0px !important;
+
+}
+.row-margin {
+   margin-right: -52px!important;
+   
+}
+.row-margin-left {
+      margin-left: 173px!important;
+}
+.col-padding-top {
+    padding-top: 8px;
+}
+.additionalinfo-margin-left {
+       margin-left: 218px!important;
+}
+.checker {
+        margin-top: 8px!important;
+}
+.order-margin {
+       margin-right: -77px!important;
+   
+}
+  .dropdown-header {
+        border-width: 0 0 1px 0;
+        text-transform: uppercase;
+    }
+
+    .dropdown-header > span {
+        display: inline-block;
+        /*padding: 20px!important;*/
+     
+    }
+    .firstchild {
+        padding-left: 0px!important;
+        margin-left:0!important;
+        padding-right:20px!important;
+    }
+    .secondchild {
+       padding-left: 10px!important;
+    
+        padding-right:10px!important;
+         
+    }
+      .thirdchild {
+       padding-left: 20px!important;
+    
+
+    }
+      .lblfirst {
+          padding-left: 0px!important;
+        margin-left:0!important;
+
+            width: 120px;
+   
+      }
+      .lblcount {
+      margin-left: 30px!important;
+   
+      }
+      .lblfont
+      { font-weight: bold;}
+    .dropdown-header > span:first-child {
+        width: 50px;
+    }
+
+    #SpName-list .k-item {
+        line-height: 1em;
+        min-width: 300px;
+    }
+    
+    /* Material Theme padding adjustment*/
+    
+    .k-material #SpName-list .k-item,
+    .k-material #SpName-list .k-item.k-state-hover,
+    .k-materialblack #SpName-list .k-item,
+    .k-materialblack #SpName-list .k-item.k-state-hover {
+        padding-left: 5px;
+        border-left: 0;
+    }
+
+    #SpName-list .k-item > span {
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        display: inline-block;
+        vertical-align: top;
+        margin: 20px 10px 10px 5px;
+    }
+
+    #SpName-list .k-item > span:first-child {
+      
+        margin: 10px;
+        width: 100px;
+        height: 50px;
+     
+    }
+
+    #SpName-list h3 {
+        font-size: 1.2em;
+        font-weight: normal;
+        margin: 0 0 1px 0;
+        padding: 0;
+    }
+
+    #SpName-list p {
+        margin: 0;
+        padding: 0;
+        font-size: .8em;
+    }
+    .smsmessage {
+            margin-left: 220px!important;
+    }
+
+    .ordernubertext {
+      
+        border: 0px;
+        text-align: center;
+    }
+
+    .sendiconpadding {
+        padding-right: 10px;
+    }

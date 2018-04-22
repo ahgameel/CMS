@@ -1,0 +1,8 @@
+﻿@using Kendo.Mvc.UI
+@model TasktyCRM.Web.Models.ServiceCategory
+@(Html.Kendo().DropDownListFor(model=>model )
+
+    .DataValueField("Id") 
+    .DataTextField("Name") 
+        .BindTo((System.Collections.IEnumerable)ViewData["servicecategories"]) 
+)

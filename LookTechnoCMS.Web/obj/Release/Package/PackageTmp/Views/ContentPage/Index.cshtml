@@ -1,0 +1,95 @@
+﻿@model LookTechnoCMS.Web.Models.PageViewModel
+@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+<meta name="keywords" content="@Model.MetaKeywords" />
+<meta name="description" content="@Model.MetaDescription" />
+<meta name="keywords" content="@Model.MetaKeywordsAr" />
+<meta name="description" content="@Model.MetaDescriptionAr" />
+<div class="page-content">
+
+  
+    <section>
+        <div class="detail-header">
+            @if (culture == "en-us")
+            {
+                <h3>@Model.Name</h3>
+            }
+            else
+            {
+                <h3>@Model.NameAr</h3>
+            }
+        </div>
+        <div class="container pcontent">
+            @(culture == "en-us" ? Model.Body : Model.BodyAr)
+
+        </div>
+    </section>
+    @if (Model.Id == 1) { 
+    <section class="look-techno aboutus-inside" id="about">
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="media  wow slideInLeft" data-wow-duration="1s" data-wow-offset="120">
+                        <div class="media-body">
+                            @{ Html.RenderAction("WhyUs", "Common", new { cellId = 7 });}
+
+                        </div>
+                        <div class="media-right img-cir">
+                            <a href="#">
+                                <img class="media-object first-img" src="~/Content/frontcss/style/image/001.png">
+                                <img class="media-object sec-img" src="~/Content/frontcss/style/image/011.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6 col-xs-12">
+                    <div class="media wow slideInRight" data-wow-duration="1s" data-wow-offset="120">
+                        <div class="media-left img-cir">
+                            <a href="#">
+                                <img class="media-object first-img" src="~/Content/frontcss/style/image/002.png">
+                                <img class="media-object sec-img" src="~/Content/frontcss/style/image/022.png">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            @{ Html.RenderAction("HowWeWork", "Common", new { cellId = 6 });}
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6  col-xs-12">
+                    <div class="media wow slideInLeft" data-wow-duration="1s" data-wow-offset="120">
+                        <div class="media-body">
+                            @{ Html.RenderAction("OurVision", "Common", new { cellId = 8 });}
+                        </div>
+                        <div class="media-right img-cir">
+                            <a href="#">
+                                <img class="media-object first-img" src="~/Content/frontcss/style/image/003.png">
+                                <img class="media-object sec-img" src="~/Content/frontcss/style/image/033.png">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-6  col-xs-12">
+                    <div class="media wow slideInRight" data-wow-duration="1s" data-wow-offset="120">
+                        <div class="media-left img-cir">
+                            <a href="#">
+                                <img class="media-object first-img" src="~/Content/frontcss/style/image/004.png">
+                                <img class="media-object sec-img" src="~/Content/frontcss/style/image/044.png">
+                            </a>
+                        </div>
+                        <div class="media-body">
+                            @{ Html.RenderAction("OurMission", "Common", new { cellId = 9 });}
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+    }
+</div>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<LookTechnoCMS.Web.Models.OurSolutionsViewModel>
+@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+<div class="row">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3 col-sm-6 col-xs-12 wow zoomIn" data-wow-duration="2s" data-wow-delay=".2s" data-wow-offset="80">
+            <a href="#" class="solution-item">
+                <div class="item-img"><img class="media-object first-img" src="@item.Image"></div>
+               
+                @if (culture == "en-us")
+                {
+                <p>
+                   @item.Name
+                </p>
+                }
+                else
+                {
+                <p>
+                    @item.NameAr
+                </p>
+                }
+            </a>
+        </div>
+    }
+  
+</div>
+@if (culture == "en-us")
+{
+    <a href="@Url.Action("Index", "Solution")" class="btn btn-default main-btn">MORE</a>
+}
+else
+{
+    <a href="@Url.Action("Index", "Solution")" class="btn btn-default main-btn">اعرض المزيد</a>
+}
+
+

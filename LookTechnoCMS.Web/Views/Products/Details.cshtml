@@ -1,0 +1,68 @@
+﻿@model LookTechnoCMS.Web.Models.ProductViewModel
+@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+
+<meta name="keywords" content="@Model.MetaKeywords" />
+<meta name="description" content="@Model.MetaDescription" />
+<meta name="keywords" content="@Model.MetaKeywordsAr" />
+<meta name="description" content="@Model.MetaDescriptionAr" />
+<div class="page-content">
+
+
+    <section>
+        <div class="detail-header">
+            @if (culture == "en-us")
+            {
+
+                <h3>@Model.Name</h3>
+            }
+            else
+            {
+                <h3>@Model.NameAr</h3>
+            }
+            
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 project-item wow zoomIn" data-wow-duration="2s" data-wow-delay=".2s" data-wow-offset="80">
+                   
+
+                    <figure class="alignnone project-img">
+                        <img src="/UploadFiles/Products/@Model.ImagePath" alt="" />
+                        <div class="overlay">
+
+                            <a href="/UploadFiles/Products/@Model.ImagePath" class="popup-link zoom"><i class="fa fa-search-plus"></i></a>
+                        </div>
+                    </figure>
+                </div>
+                <div class="col-md-6">
+                    @if (culture == "en-us")
+                    {
+
+                        <h2>@Model.Name</h2>
+                    }
+                    else
+                    {
+                        <h2>@Model.NameAr</h2>
+                    }
+                    @if (culture == "en-us")
+                    {
+
+                        <p>@Model.Description</p>
+                    }
+                    else
+                    {
+                        <p>@Model.DescriptionAr</p>
+                    }
+
+                    <div class="spacer-sm"></div>
+
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+
+  
+</div>

@@ -1,0 +1,104 @@
+﻿@using Kendo.Mvc.UI
+@model IEnumerable<LookTechnoCMS.Web.Models.OurSolutionsViewModel>
+@{
+    ViewBag.Title = "OurSolutions";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box grey">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-wrench"></i>Our Solutions</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+
+                    <a href="javascript:;" class="reload"></a>
+
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-toolbar">
+                    <div class="btn-group">
+                        <a id="sample_editable_1_new" href="@Url.Action("Create", "OurSolutions")" class="btn green">
+                            <i class="icon-plus"></i> Add Solution
+                        </a>
+
+
+                    </div>
+                    <div class="btn-group pull-right">
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                            Tools <i class="icon-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="#">Print</a></li>
+                            <li><a href="#">Save as PDF</a></li>
+                            <li><a href="#">Export to Excel</a></li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+
+                @(Html.Kendo().Grid(Model)
+                      .Name("grid")
+                      .Pageable(pageable => pageable
+                      .PageSizes(true).Input(true)
+                      .Refresh(true).ButtonCount(5))
+                      .Scrollable(s => s.Height("500"))
+                      .Sortable()
+                      .Filterable()
+                      .Groupable()
+                      .Columns(columns =>
+                      {
+                          columns.Bound(p => p.Id).Visible(false);
+                          columns.Bound(p => p.Name).Title("Name").Width(30);
+                          columns.Bound(p => p.NameAr).Title("Name Arabic").Width(30);
+                          columns.Bound(p => p.Image).ClientTemplate("<a href='#=Image#' target='_blank'><img src='#=Image#' alt='#=Id #' Title='#=Id #' height='100' width='100'/><a/>").Title("Image").Width(30);
+
+                          columns.Template(t => { }).HeaderTemplate("").ClientTemplate(@"<a class='k-button k-button-icontext k-grid-Edit'  href='" + Url.Action("Edit", "OurSolutions") + "?id=#= Id #'" + "><span class='k-icon k-edit'></span>Edit</a>").Width(15).Title("")
+                                          .Title("");
+                          columns.Command(command =>
+                          {
+
+                              command.Custom("Delete").Click("deleteGridRecord").Text("Delete").SendDataKeys(true);
+                          }).Width(40);
+                      }).Events(e => e.DataBound("onRowBound")).DataSource(dataSource => dataSource.Ajax().PageSize(40).Read(read => read.Action("GetSolutions", "OurSolutions"))
+                                                        .Model(model => model.Id(p => p.Id)).Destroy(destroy => destroy.Action("Delete", "OurSolutions")))
+                )
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+
+<script type="text/javascript">
+    function onRowBound(e) {
+        $(".k-grid-Edit").find("span").addClass("k-icon k-edit");
+        $(".k-grid-Delete").find("span").addClass("k-icon k-delete");
+    }
+
+
+
+
+
+    var Variables = {
+
+        DeleteUrl: '@Url.Action("Delete")'
+
+    };
+
+
+</script>
+
+

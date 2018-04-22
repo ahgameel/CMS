@@ -1,0 +1,201 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{CFFDAEEB-B083-4DEE-B370-81F42C6E01D3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LookTechnoCMS.Data</RootNamespace>
+    <AssemblyName>LookTechnoCMS.Data</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ActivityLog.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ActivityLogType.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetRole.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetRoleClaim.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUser.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserClaim.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserLogin.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="AspNetUserRole.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Brand.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Category.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Cell.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="CellSetting.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Contatctu.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="GeneralSetting.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="HomeSlider.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\BaseEntity.cs" />
+    <Compile Include="Infrastructure\EntityService.cs" />
+    <Compile Include="Infrastructure\IContext.cs" />
+    <Compile Include="Infrastructure\IdentityModels.cs" />
+    <Compile Include="Infrastructure\IEntityService.cs" />
+    <Compile Include="Infrastructure\LookTechno.cs" />
+    <Compile Include="LookTechno.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LookTechno.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LookTechno.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="LookTechno.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LookTechno.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Menu.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="MenuModule.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewsLetter.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="NewsletterSubscriber.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OurService.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="OurSolution.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Page.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PartialEntities\ApplicationRole.cs" />
+    <Compile Include="PartialEntities\ApplicationUser.cs" />
+    <Compile Include="PartialEntities\Brand.cs" />
+    <Compile Include="PartialEntities\Category.cs" />
+    <Compile Include="PartialEntities\Cell.cs" />
+    <Compile Include="PartialEntities\CellSetting.cs" />
+    <Compile Include="PartialEntities\Contatctu.cs" />
+    <Compile Include="PartialEntities\GeneralSetting.cs" />
+    <Compile Include="PartialEntities\HomeSlider.cs" />
+    <Compile Include="PartialEntities\Menu.cs" />
+    <Compile Include="PartialEntities\NewsletterSubscriber.cs" />
+    <Compile Include="PartialEntities\OurService.cs" />
+    <Compile Include="PartialEntities\OurSolution.cs" />
+    <Compile Include="PartialEntities\Page.cs" />
+    <Compile Include="PartialEntities\Product.cs" />
+    <Compile Include="PartialEntities\RoleClaim.cs" />
+    <Compile Include="Product.cs">
+      <DependentUpon>LookTechno.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EntityDeploy Include="LookTechno.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>LookTechno.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.Config" />
+    <None Include="LookTechno.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LookTechno.edmx</DependentUpon>
+      <LastGenOutput>LookTechno.Context.cs</LastGenOutput>
+    </None>
+    <None Include="LookTechno.edmx.diagram">
+      <DependentUpon>LookTechno.edmx</DependentUpon>
+    </None>
+    <None Include="LookTechno.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>LookTechno.edmx</DependentUpon>
+      <LastGenOutput>LookTechno.cs</LastGenOutput>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

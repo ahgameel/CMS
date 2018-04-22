@@ -1,0 +1,115 @@
+﻿@using Kendo.Mvc.UI
+@model LookTechnoCMS.Web.Models.HomeSliderViewModel
+
+<div id="ValidateDemoContainer">
+
+    <!-- BEGIN FORM-->
+    @*@Html.ValidationSummary(true)*@
+    @Html.HiddenFor(model => model.Id)
+    @Html.HiddenFor(mode=>Model.DateCreated)
+    <div class="form-group">
+        <label class="col-md-3 control-label">Title</label>
+        <div class="col-md-4">
+
+
+            @Html.TextBoxFor(model => model.SlideTitle, new { @class = "form-control", @placeholder = "Title", required = true, @validationMessage = "Please add Title" })
+
+
+        </div>
+    </div>
+    
+    @if (Model.ShowHideImage)
+    {
+        <div class="form-group" id="imgcontainer">
+            <label class="col-md-3 control-label"></label>
+            <div class="col-md-4">
+
+
+
+                <img id="previousimage" src='~/UploadFiles/Slider/@Model.SlideImage' class="col-md-11" />
+                <button id="removebtn"><i class="icon-remove"></i></button>
+
+                @Html.HiddenFor(model => model.SlideImage)
+            </div>
+        </div>
+    }
+    <div class="form-group">
+        <label class="col-md-3 control-label">Image</label>
+        <div class="col-md-4">
+
+            @(Html.Kendo().Upload()
+                  .Name("files")
+                  .TemplateId("fileTemplate")
+                  .HtmlAttributes(new { required = true })
+                  .Multiple(false)
+                  .Events(events => events.Select("onSelect"))
+
+            )
+
+
+
+        </div>
+    </div>
+    <div class="form-group">
+        <label class="col-md-3 control-label">Link URL</label>
+        <div class="col-md-4">
+
+            @Html.TextBoxFor(model => model.HasLink, new { @class = "form-control", @placeholder = "Link URL" })
+
+
+        </div>
+    </div>
+    
+
+   
+    <div class="form-group">
+        <label class="col-md-3 control-label">IsActive</label>
+        <div class="col-md-4">
+
+
+            @Html.EditorFor(model => model.IsActive, new { @class = "form-control" })
+
+        </div>
+    </div>
+
+
+
+
+
+
+    <script id="fileTemplate" type="text/x-kendo-template">
+        <span class='k-progress'></span>
+        <div class='file-wrapper'>
+            <img class='file-icon' /> <!-- here im trying to bind the image -->
+            <h4 class='file-heading file-name-heading'>Name: #=name#</h4>
+            <h4 class='file-heading file-size-heading'>Size: #=size# bytes</h4>
+            <button type='button' class='k-upload-action'></button>
+        </div>
+    </script>
+
+    <!-- END FORM-->
+</div>
+<script>
+    function onSelect(e) {
+        $.each(e.files, function (index, value) {
+            readMultipleFiles(value);
+        });
+    }
+
+    function readMultipleFiles(file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var fileobj = file;
+            $('.k-file[data-uid="' + fileobj.uid + '"]').find('img').attr({ src: e.target.result });
+        };
+        reader.readAsDataURL(file.rawFile);
+    }
+    $("#removebtn").click(function () {
+        $("#imgcontainer").hide();
+
+
+        $('#previousimage').attr('src', '');
+
+    });
+
+</script>

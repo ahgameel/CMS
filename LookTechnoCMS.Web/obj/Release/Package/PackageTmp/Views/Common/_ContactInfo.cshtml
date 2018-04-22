@@ -1,0 +1,27 @@
+﻿@model LookTechnoCMS.Web.Models.SettingViewModel
+@{
+
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+@if (culture == "en-us")
+{
+    <h3>Contact us</h3>
+    <ul class="nav nav-pills nav-stacked">
+        <li>@Model.Address</li>
+
+        <li>Phone:@Model.Telephone</li>
+        <li>Fax:@Model.Fax</li>
+        <li>Email:@Model.Email</li>
+    </ul>
+}
+else
+{
+    <h3>اتصل بنا</h3>
+    <ul class="nav nav-pills nav-stacked">
+        <li>@Model.AddressAr</li>
+
+        <li>هاتف: @Model.Telephone</li>
+        <li>فاكس: @Model.Fax</li>
+        <li>ايميل: @Model.Email</li>
+    </ul>
+}

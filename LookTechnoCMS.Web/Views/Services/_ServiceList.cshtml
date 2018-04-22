@@ -1,0 +1,50 @@
+﻿@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+<div class="row service-list">
+    <div class="col-md-10 col-md-offset-1 col-sm-12">
+
+        <div class="col-sm-4 col-xs-12">
+            <a href="#" class="service-item">
+                <span class="img-cir">
+                    <img class="first-img" src="~/Content/frontcss/style/image/007.png">
+                    <img class="sec-img" src="~/Content/frontcss/style/image/077.png">
+                </span>
+           
+
+                @{ Html.RenderAction("ListItem", "Services", new { serviceId = 3});}
+            </a>
+        </div>
+
+        <div class="col-sm-4 col-xs-12">
+            <a href="#" class="service-item">
+                <span class="img-cir">
+                    <img class="media-object first-img" src="~/Content/frontcss/style/image/006.png">
+                    <img class="media-object sec-img" src="~/Content/frontcss/style/image/066.png">
+                </span>
+             
+          
+                @{ Html.RenderAction("ListItem", "Services", new { serviceId = 1 });}
+            </a>
+        </div>
+
+        <div class="col-sm-4 col-xs-12">
+            <a href="#" class="service-item">
+                <span class="img-cir">
+                    <img class="media-object first-img" src="~/Content/frontcss/style/image/005.png">
+                    <img class="media-object sec-img" src="~/Content/frontcss/style/image/055.png">
+                </span>
+            
+                @{ Html.RenderAction("ListItem", "Services", new { serviceId = 5 });}
+            </a>
+        </div>
+    </div>
+</div>
+@if (culture == "en-us")
+{
+    <a href="@Url.Action("Index", "Services")" class="btn btn-default main-btn">MORE</a>
+}
+else
+{
+    <a href="@Url.Action("Index", "Services")" class="btn btn-default main-btn">اعرض المزيد</a>
+}

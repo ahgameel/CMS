@@ -1,0 +1,109 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+<!-- start slide show -->
+<section id="home" class="slider">
+    @{Html.RenderAction("Slider", "Home");}
+</section>
+<!-- end slide show -->
+<!-- start look techno -->
+<section class="look-techno" id="about">
+    <div class="container">
+        <div class="section-header text-center wow bounceIn" data-wow-duration="2s" data-wow-offset="100">
+            @{ Html.RenderAction("LookTechno", "Home", new { cellId = 5 });}
+        </div>
+        <div class="row">
+
+            <div class="col-md-6 col-xs-12">
+                <div class="media  wow slideInLeft" data-wow-duration="1s" data-wow-offset="120">
+                    <div class="media-body">
+                        @{ Html.RenderAction("WhyUs", "Common", new { cellId = 7 });}
+                       
+                    </div>
+                    <div class="media-right img-cir">
+                        <a href="#">
+                            <img class="media-object first-img" src="~/Content/frontcss/style/image/001.png">
+                            <img class="media-object sec-img" src="~/Content/frontcss/style/image/011.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-xs-12">
+                <div class="media wow slideInRight" data-wow-duration="1s" data-wow-offset="120">
+                    <div class="media-left img-cir">
+                        <a href="#">
+                            <img class="media-object first-img" src="~/Content/frontcss/style/image/002.png">
+                            <img class="media-object sec-img" src="~/Content/frontcss/style/image/022.png">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        @{ Html.RenderAction("HowWeWork", "Common", new { cellId = 6 });}
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6  col-xs-12">
+                <div class="media wow slideInLeft" data-wow-duration="1s" data-wow-offset="120">
+                    <div class="media-body">
+                        @{ Html.RenderAction("OurVision", "Common", new { cellId = 8 });}
+                    </div>
+                    <div class="media-right img-cir">
+                        <a href="#">
+                            <img class="media-object first-img" src="~/Content/frontcss/style/image/003.png">
+                            <img class="media-object sec-img" src="~/Content/frontcss/style/image/033.png">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6  col-xs-12">
+                <div class="media wow slideInRight" data-wow-duration="1s" data-wow-offset="120">
+                    <div class="media-left img-cir">
+                        <a href="#">
+                            <img class="media-object first-img" src="~/Content/frontcss/style/image/004.png">
+                            <img class="media-object sec-img" src="~/Content/frontcss/style/image/044.png">
+                        </a>
+                    </div>
+                    <div class="media-body">
+                        @{ Html.RenderAction("OurMission", "Common", new { cellId = 9 });}
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- end look techno -->
+<!-- start our service -->
+<section class="our-service text-center" id="service">
+    <div class="container">
+        <div class="section-header">
+            @{ Html.RenderAction("OurServices", "Home", new { cellId = 10 });}
+        </div>
+        @Html.Partial("../Services/_ServiceList")
+    </div>
+</section>
+<!-- end our service -->
+<!-- start our solution -->
+<section class="our-solution text-center">
+    @{ Html.RenderAction("OurSolutions", "Home", new { cellId = 1 });}
+    
+</section>
+<!-- end our solution -->
+<!-- start About -->
+<section class="about text-center">
+    <div class="container">
+        <p class="wow zoomIn" data-wow-duration="2s" data-wow-offset="100">@{ Html.RenderAction("AfterOurSolutions", "Home", new { cellId = 12 });}.</p>
+    </div>
+</section>
+<!-- end About -->
+<!-- start Product -->
+<section class="our-product text-center" id="product">
+    <div class="container">
+        @{Html.RenderAction("OurProducts", "Home");}
+    </div>
+</section>
+<!-- end Product -->

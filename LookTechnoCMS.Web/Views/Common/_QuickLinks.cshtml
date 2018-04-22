@@ -1,0 +1,53 @@
+﻿@model IEnumerable<LookTechnoCMS.Web.Models.MenuViewModel>
+@{
+
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+
+@if (culture == "en-us")
+{
+    
+    <h3>Quick links</h3>
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-circle" aria-hidden="true"></i>Home</a></li>
+        @foreach (var item in Model)
+        {
+            <li><a href='/@item.Url'><i class="fa fa-circle" aria-hidden="true"></i>@item.Name</a></li>
+            
+        }
+
+
+        <li><a href="@Url.Action("Index", "Services")"><i class="fa fa-circle" aria-hidden="true"></i> Services</a></li>
+           
+
+
+        <li><a href="@Url.Action("Index", "Products")"><i class="fa fa-circle" aria-hidden="true"></i> Products</a></li>
+        
+        <li><a href="@Url.Action("Index", "Contact")"><i class="fa fa-circle" aria-hidden="true"></i>  Contact us</a></li>
+        
+    </ul>
+}
+else
+{
+    <h3>روابط سريعه</h3>
+    <ul class="nav nav-pills nav-stacked">
+        <li><a href="@Url.Action("Index", "Home")"><i class="fa fa-circle" aria-hidden="true"></i>الرئيسيه</a></li>
+        @foreach (var item in Model)
+        {
+            <li><a href='/@item.Url'><i class="fa fa-circle" aria-hidden="true"></i>@item.NameAr</a></li>
+
+        }
+
+
+        <li><a href="@Url.Action("Index", "Services")"><i class="fa fa-circle" aria-hidden="true"></i>خدماتنا</a></li>
+
+
+
+        <li><a href="@Url.Action("Index", "Products")"><i class="fa fa-circle" aria-hidden="true"></i>المنتجات</a></li>
+
+        <li><a href="@Url.Action("Index", "Contact")"><i class="fa fa-circle" aria-hidden="true"></i> اتصل بنا</a></li>
+
+    </ul>
+}
+
+

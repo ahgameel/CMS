@@ -1,0 +1,156 @@
+﻿@model LookTechnoCMS.Web.Models.ContactUsViewModel
+@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+<div class="page-content">
+
+
+    <section>
+        <div class="detail-header">
+            @if (culture == "en-us")
+            {
+                <h3 class="widget-title">Contact Us</h3>
+            }
+            else
+            {
+                <h3 class="widget-title">اتصل بنا</h3>
+            }
+      
+        </div>
+        <div class="googlemap-wrapper">
+            <div id="map_canvas" class="map-canvas"></div>
+        </div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-9">
+                    <div id="result" class="alert alert-success hidden">
+                        <strong>Success!</strong> Thank you for your message. Reply will be in a while!
+                    </div>
+                    @using (Ajax.BeginForm("SubmitContactForm", "Contact", new AjaxOptions
+                    {
+
+                        OnSuccess = "OnSuccess"
+
+
+                    }, new { @class = "contactForm" }))
+                    {
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @if (culture == "en-us")
+                                    {
+                                        <label>Name <span class="required">*</span></label>
+                                    }
+                                    else
+                                    {
+                                        <label>الاسم <span class="required">*</span></label>
+                                    }
+
+                                 
+                                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", required = true, @validationMessage = "من فضلك ادخل الاسم" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @if (culture == "en-us")
+                                    {
+                                        <label>Email <span class="required">*</span></label>
+                                    }
+                                    else
+                                    {
+                                        <label>البريد الالكترونى <span class="required">*</span></label>
+                                    }
+
+                             
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", required = true, @validationMessage = "من فضلك ادخل الاسم", @type = "email" })
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    @if (culture == "en-us")
+                                    {
+                                        <label>Subject<span class="required">*</span></label>
+                                    }
+                                    else
+                                    {
+                                        <label>الموضوع</label>
+                                    }
+                       
+                                    @Html.TextBoxFor(model => model.Subject, new { @class = "form-control", required = true, @validationMessage = "من فضلك ادخل الاسم", })
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="form-group">
+                                    @if (culture == "en-us")
+                                    {
+                                        <label>Message <span class="required">*</span></label>
+                                    }
+                                    else
+                                    {
+                                        <label>الرساله <span class="required">*</span></label>
+                                    }
+                                    @Html.TextAreaFor(model => model.Message, new { @class = "form-control", @rows = "10", required = true, })
+                                   
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                @if (culture == "en-us")
+                                {
+                                    <button type="submit" value="Submit" class="btn btn-default main-btn" data-loading-text="Loading...">Send Message</button>
+                                }
+                                else
+                                {
+                                    <button type="submit" value="Submit" class="btn btn-default main-btn" data-loading-text="Loading...">إرسال</button>
+                                }
+                              
+                            </div>
+                        </div>
+                    }
+                   @*<form action="#" id="contact-form" novalidate="novalidate"></form>*@
+                </div>
+                <div class="col-md-3">
+                    <hr class="visible-sm visible-xs lg">
+                    <!-- Widget :: Contacts Info -->
+                    <div class="contacts-widget widget widget__sidebar">
+                        @{ Html.RenderAction("ContactInfo", "Contact");}
+                    </div>
+                    <!-- /Widget :: Contacts Info -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+</div>
+<script>
+    //$(function () {
+    //    $("form").kendoValidator();
+    //});
+
+    function OnSuccess() {
+        // refresh the parent window
+
+     
+        $("#Name").val('');
+        $("#Email").val('');
+        $("#Subject").val('');
+        $("#Message").val('');
+
+        var lastClass = $("#result").attr('class').split(' ').slice(-1);
+        var strLastClass = lastClass.toString();
+        var toAddClass = strLastClass.substring(0, strLastClass.length - 3);
+        $("#result").removeClass().addClass("alert alert-success show").addClass(toAddClass);
+
+
+        $("#result").fadeTo(2000, 500).slideUp(500, function () {
+            $("#result").slideUp(500);
+            $("#result").removeClass().addClass("alert alert-success hide").addClass(toAddClass);
+        });
+    }
+
+
+</script>

@@ -1,0 +1,15 @@
+G:\Workspace\LookTechno\LookTechnoCMS\LookTechnoCMS.Core\bin\Debug\LookTechnoCMS.Core.dll
+G:\Workspace\LookTechno\LookTechnoCMS\LookTechnoCMS.Core\bin\Debug\LookTechnoCMS.Core.pdb
+G:\Workspace\LookTechno\LookTechnoCMS\LookTechnoCMS.Core\obj\Debug\LookTechnoCMS.Core.dll
+G:\Workspace\LookTechno\LookTechnoCMS\LookTechnoCMS.Core\obj\Debug\LookTechnoCMS.Core.pdb
+I:\Workspace\LookTechno\LookTechnoCMS\LookTechnoCMS.Core\bin\Debug\LookTechnoCMS.Core.dll
+I:\Workspace\LookTechno\LookTechnoCMS\LookTechnoCMS.Core\bin\Debug\LookTechnoCMS.Core.pdb
+I:\Workspace\LookTechno\LookTechnoCMS\LookTechnoCMS.Core\obj\Debug\LookTechnoCMS.Core.dll
+I:\Workspace\LookTechno\LookTechnoCMS\LookTechnoCMS.Core\obj\Debug\LookTechnoCMS.Core.pdb
+I:\Workspace\LookTechno\LookTechnoCMS\LookTechnoCMS.Core\obj\Debug\LookTechnoCMS.Core.csprojResolveAssemblyReference.cache
+F:\Workspace\MyCompany-Workspace\LookTechnoCMS\LookTechnoCMS.Core\bin\Debug\LookTechnoCMS.Core.dll
+F:\Workspace\MyCompany-Workspace\LookTechnoCMS\LookTechnoCMS.Core\bin\Debug\LookTechnoCMS.Core.pdb
+F:\Workspace\MyCompany-Workspace\LookTechnoCMS\LookTechnoCMS.Core\obj\Debug\LookTechnoCMS.Core.csprojResolveAssemblyReference.cache
+F:\Workspace\MyCompany-Workspace\LookTechnoCMS\LookTechnoCMS.Core\obj\Debug\LookTechnoCMS.Core.csproj.CoreCompileInputs.cache
+F:\Workspace\MyCompany-Workspace\LookTechnoCMS\LookTechnoCMS.Core\obj\Debug\LookTechnoCMS.Core.dll
+F:\Workspace\MyCompany-Workspace\LookTechnoCMS\LookTechnoCMS.Core\obj\Debug\LookTechnoCMS.Core.pdb

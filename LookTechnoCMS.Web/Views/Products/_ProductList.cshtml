@@ -1,0 +1,46 @@
+﻿@model IEnumerable<LookTechnoCMS.Web.Models.ProductViewModel>
+@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+
+@foreach (var item in Model)
+{
+
+    <div class="col-sm-6 col-md-3 project-item">
+        <div class="project-item-inner">
+            <figure class="alignnone project-img">
+                <img src="@item.ImagePath" alt="" />
+                <div class="overlay">
+                    <a href="@Url.Action("Details", "Products",new{id=@item.Id})" class="dlink"><i class="fa fa-link"></i></a>
+                    <a href='@item.ImagePath' class="popup-link zoom"><i class="fa fa-search-plus"></i></a>
+                </div>
+            </figure>
+            <div class="project-desc">
+                @if (culture == "en-us")
+                {
+
+                    <h4 class="title"><a href="@Url.Action("Details", "Products",new{id=@item.Id})">@item.Name</a></h4>
+                    <span class="desc">@item.Description.Substring(0, Math.Min(item.Description.Length, 50))</span>
+                }
+                else
+                {
+                    <h4 class="title"><a href="@Url.Action("Details", "Products",new{id=@item.Id})">@item.NameAr</a></h4>
+                    <span class="desc">@item.DescriptionAr.Substring(0, Math.Min(item.DescriptionAr.Length, 50))</span>
+                }
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+}
+
+
+
+
+

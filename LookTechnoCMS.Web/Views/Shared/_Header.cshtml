@@ -1,0 +1,42 @@
+﻿
+@{
+
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+
+<div class="top-bar">
+    <div class="container">
+       
+        @{Html.RenderAction("TopHeader", "Common");}
+    </div>
+</div>
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#mynavbar" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="~/"><img src="~/Content/frontcss/style/image/logo.png"></a>
+        </div>
+        <!-- Collect the nav links-->
+        <div class="collapse navbar-collapse" id="mynavbar">
+            <span class="pull-right lang-btn">
+                @if (culture == "en-us")
+                {
+                    <a href="@Url.Action("SetCulture", "Common", new { @culture = "ar" })">ع</a>
+
+                }
+                else
+                {
+                    <a href="@Url.Action("SetCulture", "Common", new { @culture = "en-us" })">E</a>
+                }
+            </span>
+            @{Html.RenderAction("Menu", "Common");}
+        </div><!-- /.container-fluid -->
+    </div>
+</nav>
+

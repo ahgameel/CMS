@@ -1,0 +1,209 @@
+﻿@using System.Web.Optimization
+@model LookTechnoCMS.Web.Models.SettingViewModel
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box grey">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-cog"></i>General Settings </div>
+                <div class="actions">
+                    <div class="btn-group">
+
+
+                    </div>
+
+                </div>
+            </div>
+            <div class="portlet-body form">
+
+                @using (Html.BeginForm("Edit", "GeneralSetting", FormMethod.Post, new { @class = "form-horizontal" }))
+                {
+                    <div class="form-body">
+
+
+                        <!-- BEGIN FORM-->
+                        @*@Html.ValidationSummary(true)*@
+                        @Html.HiddenFor(model => model.Id)
+                        @Html.HiddenFor(mode => Model.DateCreated)
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Meta Title</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.MetaTitle, new { @class = "form-control", @placeholder = "MetaTitle" })
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Meta Title Arabic </label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.MetaTitleAr, new { @class = "form-control", @placeholder = "Meta Title Arabic" })
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Meta KeyWords</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.MetaKeyWords, new { @class = "form-control", @placeholder = "MetaKeyWords" })
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Meta KeyWords Arabic</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.MetaKeywordsAr, new { @class = "form-control", @placeholder = "MetaKeyWords Arabic" })
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">MetaDescription</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextAreaFor(model => model.MetaDescription, new { @class = "form-control", @placeholder = "MetaDescription" })
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">MetaDescription Arabic</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextAreaFor(model => model.MetaDescriptionAr, new { @class = "form-control", @placeholder = "MetaDescriptionArabic" })
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Twitter Link</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.TwitterLink, new { @class = "form-control", @placeholder = "Twitter Link" })
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">LinkedinLink</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.LinkedinLink, new { @class = "form-control", @placeholder = "Linkedin Link" })
+
+
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Facebook Link</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.FacebookLink, new { @class = "form-control", @placeholder = "Facebook Link" })
+
+
+                            </div>
+                        </div>
+
+
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Youtube Video Link</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.YoutubeVideoLink, new { @class = "form-control", @placeholder = "Youtube Video Link" })
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Telephone</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control", @placeholder = "Telephone" })
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Fax</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.Fax, new { @class = "form-control", @placeholder = "Fax" })
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Email</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Email" })
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Address</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @placeholder = "Address" })
+
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-3 control-label">Address Arabic</label>
+                            <div class="col-md-9">
+
+
+                                @Html.TextBoxFor(model => model.AddressAr, new { @class = "form-control", @placeholder = "Address" })
+
+
+                            </div>
+                        </div>
+                        <!-- END FORM-->
+
+
+                    </div>
+                    <div class="form-actions fluid">
+                        <div class="col-md-offset-3 col-md-9">
+                            <button type="submit" name="submit" id="btnsave" class="btn blue" value="Save">Save</button>
+
+                        </div>
+                    </div>
+
+                }
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<script>
+    $(function () {
+        $("form").kendoValidator();
+    });
+
+
+</script>
+

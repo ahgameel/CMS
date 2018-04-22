@@ -1,0 +1,52 @@
+﻿@using LookTechnoCMS.Web.Infrastructure.ValidationMessage
+@*@helper ShowToastMessages(ValidateMessageContainer messageContainer)
+{
+    if (messageContainer != null)
+    {
+        <script>
+      $(document).ready(function () {
+        toastr.options.closeButton = '@messageContainer.ShowCloseButton';
+        toastr.options.newestOnTop = '@messageContainer.ShowNewestOnTop';
+
+        @foreach (ValidateMessage message in messageContainer.ValisateMessages)
+        {
+          string toastTypeValue = message.MessageType.ToString("F").ToLower();
+          @: var optionsOverride = { /* Add message specific options here */ };
+          if (message.IsSticky)
+          {
+            @:optionsOverride.timeOut = 0;
+            @:optionsOverride.extendedTimeout = 0;
+          }
+          @:toastr['@toastTypeValue']('@message.Message', '@message.Title', optionsOverride);
+        }
+      });
+        </script>
+    }
+}*@
+
+@if (TempData.ContainsKey("Toastr"))
+{
+    var messageContainer = TempData["Toastr"] as ValidateMessageContainer;
+     if (messageContainer != null)
+    {
+        <script>
+    $(document).ready(function ()
+    {
+               toastr.options.closeButton = '@messageContainer.ShowCloseButton';
+                toastr.options.newestOnTop = '@messageContainer.ShowNewestOnTop';
+
+                @foreach (var message in messageContainer.ValisateMessages)
+                {
+                    string toastTypeValue = message.MessageType.ToString("F").ToLower();
+                    @: var optionsOverride = { "positionClass": "toast-top-center", "showMethod": "fadeIn", "hideMethod": "fadeOut" };
+                            if (message.IsSticky)
+                    {
+                        @:optionsOverride.timeOut = 0;
+                                @:optionsOverride.extendedTimeout = 0;
+                            }
+                    @:toastr['@toastTypeValue']('@message.Message', '@message.Title', optionsOverride);
+                        }
+    });
+        </script>
+    }
+}

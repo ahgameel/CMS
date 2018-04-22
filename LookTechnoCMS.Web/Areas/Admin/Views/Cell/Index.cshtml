@@ -1,0 +1,143 @@
+﻿@using Kendo.Mvc.UI
+@model IEnumerable<LookTechnoCMS.Web.Models.CellViewModel>
+@{
+    ViewBag.Title = "Cells List";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box grey">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-columns"></i>Cells</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+
+                    <a href="javascript:;" class="reload"></a>
+
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-toolbar">
+                    <div class="btn-group">
+
+
+
+                    </div>
+                    <div class="btn-group pull-right">
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                            Tools <i class="icon-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                            <li><a href="#">Print</a></li>
+                            <li><a href="#">Save as PDF</a></li>
+                            <li><a href="#">Export to Excel</a></li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+
+                @(Html.Kendo().Grid(Model)
+                      .Name("grid")
+                      .Pageable(pageable => pageable
+                      .PageSizes(true).Input(true)
+                      .Refresh(true).ButtonCount(5))
+                      .Scrollable(s => s.Height("500"))
+                      .Sortable()
+                      .Filterable()
+                      .Groupable()
+                      .Columns(columns =>
+                      {
+                          columns.Bound(p => p.Id).Visible(false);
+                          columns.Bound(p => p.CellTitle).Width(30).Title("Cell Title");
+                          //columns.Bound(p => p.CellTitleAr).Width(30).Title("Cell Title Arabic");
+                          columns.Bound(p => p.ShowHide).Width(30).ClientTemplate("<input type='checkbox' #= ShowHide ?  checked='checked':'' # class='chkbx' disabled='disabled' />"); ;
+                          columns.Template(t => { }).HeaderTemplate("").ClientTemplate(@"<a class='k-button k-button-icontext k-grid-Edit'  href='" + Url.Action("Configure", "Cell") + "?id=#= Id #'" + "><span class='k-icon k-edit'></span>Configure</a>").Width(15).Title("")
+                                          .Title("");
+
+                      })
+                              .ToolBar(toolbar =>
+                      {
+
+                          toolbar.Save();
+                      })
+                      .Editable(editable => editable.Mode(GridEditMode.InCell))
+                              .Events(e => e.DataBound(" onRowBound"))
+                      .DataSource(dataSource => dataSource
+                          .Ajax()
+                          .Batch(true)
+                          .PageSize(40)
+
+                          .Model(model =>
+                          {
+                              model.Id(p => p.Id);
+                              model.Field(p => p.Id).Editable(false);
+                              model.Field(p => p.CellTitle).Editable(false);
+                              model.Field(p => p.CellTitleAr).Editable(false);
+                          
+                              model.Field(p => p.ShowHide);
+                          })
+                                                  .Read(read => read.Action("GetCells", "Cell"))
+                                          .Update(update => update.Action("CellEditingInline", "Cell"))
+                          
+                      )
+                     
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                )
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+
+<script type="text/javascript">
+    function onRowBound(e) {
+        $(".k-grid-Edit").find("span").addClass("k-icon k-edit");
+        $(".k-grid-Delete").find("span").addClass("k-icon k-delete");
+
+        //var grid = $("#grid").data("kendoGrid");
+        //var gridData = grid.dataSource.view();
+
+        //for (var i = 0; i < gridData.length; i++) {
+        //    var currentUid = gridData[i].uid;
+        //    if (gridData[i].Id == 1) {
+        //        var currenRow = grid.table.find("tr[data-uid='" + currentUid + "']");
+        //        var editButton = $(currenRow).find(".k-grid-Edit");
+        //        editButton.hide();
+        //    }
+        //}
+
+    }
+
+
+
+
+
+    var Variables = {
+
+        DeleteUrl: '@Url.Action("Delete")'
+
+    };
+
+
+</script>

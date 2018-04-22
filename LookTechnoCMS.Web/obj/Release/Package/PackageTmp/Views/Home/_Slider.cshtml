@@ -1,0 +1,29 @@
+﻿@model IEnumerable<LookTechnoCMS.Web.Models.HomeSliderViewModel>
+<div id="slideshow" class="carousel slide" data-ride="carousel">
+    <!-- Wrapper for slides -->
+    <div class="carousel-inner" role="listbox">
+        @foreach (var item in Model)
+        {
+
+            <div class="item">
+                <img src="@item.SlideImage" alt="service or event">
+                <div class="carousel-caption">
+                    <h1><span>@item.SlideTitle</span></h1>
+                </div>
+            </div>
+
+
+        }
+       
+    </div>
+    <!-- Controls -->
+    <div class=" carousel-control">
+        <a class="top" href="#slideshow" role="button" data-slide="prev">
+            <span class="glyphicon glyphicon-menu-up" aria-hidden="true"></span>
+        </a>
+        <span class="slide-num"></span>
+        <a class="bottom" href="#slideshow" role="button" data-slide="next">
+            <span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span>
+        </a>
+    </div>
+</div>

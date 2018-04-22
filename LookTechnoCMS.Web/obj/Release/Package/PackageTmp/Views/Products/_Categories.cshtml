@@ -1,0 +1,31 @@
+﻿@model IEnumerable<LookTechnoCMS.Web.Models.CategoryViewModel>
+@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+@if (culture == "en-us")
+{
+    <h3 class="widget-title">Categories</h3>
+}
+else
+{
+    <h3 class="widget-title">فئات المنتجات</h3>
+}
+
+<div class="widget-content">
+    <ul>
+        @foreach (var item in Model)
+        {
+            if (culture == "en-us")
+            {
+                <li><button class="CategoryButton" value="@item.Id">@item.Name</button> </li>
+            }
+            else
+            {
+                <li><button class="CategoryButton" value="@item.Id">@item.NameAr</button> </li>
+            }
+
+        }
+
+    </ul>
+</div>
+

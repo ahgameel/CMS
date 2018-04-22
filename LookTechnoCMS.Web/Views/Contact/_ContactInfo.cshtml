@@ -1,0 +1,64 @@
+﻿@model LookTechnoCMS.Web.Models.SettingViewModel
+    
+@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+@if (culture == "en-us")
+{
+    <h3 class="widget-title">Contact Us</h3>
+}
+else
+{
+    <h3 class="widget-title">اتصل بنا</h3>
+}
+
+<div class="widget-content">
+    <ul class="contacts-info-list">
+        <li>
+            <i class="fa fa-map-marker"></i>
+            <div class="info-item">
+              @if (culture == "en-us")
+              {
+                @Model.Address
+              }
+              else
+              {
+               @Model.AddressAr
+              }
+            </div>
+        </li>
+        <li>
+            <i class="fa fa-phone"></i>
+            <div class="info-item">
+               @Model.Telephone<br>
+               @Model.Fax
+            </div>
+        </li>
+        <li>
+            <i class="fa fa-envelope"></i>
+            <span class="info-item">
+                <a href="mailto:@Model.Email">@Model.Email</a>
+            </span>
+        </li>
+
+        <li>
+            <i class="fa fa-clock-o"></i>
+            @if (culture == "en-us")
+            {
+                <div class="info-item">
+
+                    Saturday- Thursday 9:00 - 9:00
+                </div>
+            }
+            else
+            {
+                <div class="info-item">
+
+                 السبت - الخميس 9:00 - 9:00
+                </div>
+            }
+           
+        </li>
+    </ul>
+</div>
+

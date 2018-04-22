@@ -1,0 +1,34 @@
+﻿@model IEnumerable<LookTechnoCMS.Web.Models.BrandsViewModel>
+
+@{
+
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+
+<div class="section-header">
+
+    @if (culture == "en-us")
+    {
+
+
+        <h3>Our Products </h3>
+    }
+    else
+    {
+
+        <h3>منتجاتنا </h3>
+    }
+</div>
+<div class="owl-carousel">
+    @foreach (var item in Model)
+    {
+
+       
+            <img src="@item.Image" alt="service or event">
+          
+ 
+
+
+    }
+   
+</div>

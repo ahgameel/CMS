@@ -1,0 +1,210 @@
+﻿@model LookTechnoCMS.Web.Models.OurSolutionsViewModel
+@using Kendo.Mvc.UI
+
+@Html.HiddenFor(model => model.Id)
+@Html.HiddenFor(model => model.DateCreated)
+<div id="ValidateDemoContainer">
+
+    <div class="tabbable tabbable-custom boxless">
+        <ul class="nav nav-tabs">
+            <li class="active"><a href="#tab_0" data-toggle="tab">Solution  English </a></li>
+            <li class=""><a href="#tab_1" data-toggle="tab">Solution Arabic</a></li>
+            <li class=""><a href="#tab_2" data-toggle="tab"> Image</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane active" id="tab_0">
+
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> Name</label>
+                    <div class="col-md-4">
+
+
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = " Name", required = true, @validationMessage = "Please enter name" })
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Description</label>
+                    <div class="col-md-9">
+
+
+                        @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @placeholder = "Description", @rows = "6", required = true, @validationMessage = "Please enter description" })
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Meta Title</label>
+                    <div class="col-md-9">
+
+
+                        @Html.TextBoxFor(model => model.MetaTitle, new { @class = "form-control", @placeholder = "MetaTitle" })
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Meta KeyWords</label>
+                    <div class="col-md-9">
+
+
+                        @Html.TextBoxFor(model => model.MetaKeywords, new { @class = "form-control", @placeholder = "MetaKeyWords" })
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">MetaDescription</label>
+                    <div class="col-md-9">
+
+
+                        @Html.TextAreaFor(model => model.MetaDescription, new { @class = "form-control", @placeholder = "MetaDescription" })
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab_1">
+                <div class="form-group">
+                    <label class="col-md-3 control-label"> Name </label>
+                    <div class="col-md-4">
+
+
+                        @Html.TextBoxFor(model => model.NameAr, new { @class = "form-control", @placeholder = " Name", required = true, @validationMessage = "Please enter name" })
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Description</label>
+                    <div class="col-md-9">
+
+
+                        @Html.TextAreaFor(model => model.DescriptionAr, new { @class = "form-control", @placeholder = "Description", @rows = "6", required = true, @validationMessage = "Please enter description" })
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Meta Title Arabic </label>
+                    <div class="col-md-9">
+
+
+                        @Html.TextBoxFor(model => model.MetaTitleAr, new { @class = "form-control", @placeholder = "Meta Title Arabic" })
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Meta KeyWords Arabic</label>
+                    <div class="col-md-9">
+
+
+                        @Html.TextBoxFor(model => model.MetaKeywordsAr, new { @class = "form-control", @placeholder = "MetaKeyWords Arabic" })
+
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-3 control-label">MetaDescription Arabic</label>
+                    <div class="col-md-9">
+
+
+                        @Html.TextAreaFor(model => model.MetaDescriptionAr, new { @class = "form-control", @placeholder = "MetaDescriptionArabic" })
+
+
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane" id="tab_2">
+                @if (Model.ShowHideImage)
+                {
+                    <div class="form-group" id="imgcontainer">
+                        <label class="col-md-3 control-label"></label>
+                        <div class="col-md-4">
+
+
+
+                            <img id="previousimage" src='~/UploadFiles/OurSolutions/@Model.Image' class="col-md-11" />
+                            <button id="removebtn"><i class="icon-remove"></i></button>
+
+                            @Html.HiddenFor(model => model.Image)
+                        </div>
+                    </div>
+                }
+                <div class="form-group">
+                    <label class="col-md-3 control-label">Image</label>
+                    <div class="col-md-4">
+
+                        @(Html.Kendo().Upload()
+                          .Name("files")
+                          .TemplateId("fileTemplate")
+                          .HtmlAttributes(new { required = true })
+                          .Multiple(false)
+                          .Events(events => events.Select("onSelect"))
+
+                        )
+
+
+
+                    </div>
+                </div>
+
+
+
+
+
+
+                <script id="fileTemplate" type="text/x-kendo-template">
+                    <span class='k-progress'></span>
+                    <div class='file-wrapper'>
+                        <img class='file-icon' /> <!-- here im trying to bind the image -->
+                        <h4 class='file-heading file-name-heading'>Name: #=name#</h4>
+                        <h4 class='file-heading file-size-heading'>Size: #=size# bytes</h4>
+                        <button type='button' class='k-upload-action'></button>
+                    </div>
+                </script>
+            </div>
+
+
+
+        </div>
+    </div>
+    <hr>
+    
+   
+    <div class="form-group">
+        <label class="col-md-3 control-label">ShowInHomePage</label>
+        <div class="col-md-4">
+
+
+            @Html.EditorFor(model => model.ShowInHomePage, new { @class = "form-control" })
+
+        </div>
+    </div>
+</div>
+<script>
+    function onSelect(e) {
+        $.each(e.files, function (index, value) {
+            readMultipleFiles(value);
+        });
+    }
+
+    function readMultipleFiles(file) {
+        var reader = new FileReader();
+        reader.onload = function (e) {
+            var fileobj = file;
+            $('.k-file[data-uid="' + fileobj.uid + '"]').find('img').attr({ src: e.target.result });
+        };
+        reader.readAsDataURL(file.rawFile);
+    }
+    $("#removebtn").click(function () {
+        $("#imgcontainer").hide();
+
+
+        $('#previousimage').attr('src', '');
+
+    });
+
+</script>

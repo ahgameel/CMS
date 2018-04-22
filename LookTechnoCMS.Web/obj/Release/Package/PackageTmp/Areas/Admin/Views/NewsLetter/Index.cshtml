@@ -1,0 +1,97 @@
+﻿@using Kendo.Mvc.UI
+@model IEnumerable<LookTechnoCMS.Web.Models.SubscribersViewModel>
+@{
+    ViewBag.Title = "Subscribers";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <!-- BEGIN EXAMPLE TABLE PORTLET-->
+        <div class="portlet box grey">
+            <div class="portlet-title">
+                <div class="caption"><i class="icon-envelope-alt"></i>Subscribers</div>
+                <div class="tools">
+                    <a href="javascript:;" class="collapse"></a>
+
+                    <a href="javascript:;" class="reload"></a>
+
+                </div>
+            </div>
+            <div class="portlet-body">
+                <div class="table-toolbar">
+                    <div class="btn-group">
+
+
+
+                    </div>
+                    <div class="btn-group pull-right">
+                        <button class="btn dropdown-toggle" data-toggle="dropdown">
+                            Tools <i class="icon-angle-down"></i>
+                        </button>
+                        <ul class="dropdown-menu pull-right">
+                          
+                            <li><a href="#" onclick="ExportData()">Export to Excel</a></li>
+                        </ul>
+                    </div>
+
+
+
+                </div>
+
+                @(Html.Kendo().Grid(Model)
+                      .Name("grid")
+                      .Pageable(pageable => pageable
+                      .PageSizes(true).Input(true)
+                      .Refresh(true).ButtonCount(5))
+                      .Scrollable(s => s.Height("500"))
+                      .Sortable()
+                      .Filterable()
+                      .Groupable()
+                      .Columns(columns =>
+                      {
+                          columns.Bound(p => p.Id).Visible(false);
+                       
+                          columns.Bound(p => p.Email).Title("Email").Width(30);
+                        
+
+                      }).Events(e => e.DataBound("onRowBound")).DataSource(dataSource => dataSource.Ajax().PageSize(40).Read(read => read.Action("GetSubscribers", "NewsLetter"))
+                                .Model(model => model.Id(p => p.Id)))
+                )
+
+
+
+
+
+
+
+
+
+            </div>
+        </div>
+        <!-- END EXAMPLE TABLE PORTLET-->
+    </div>
+</div>
+
+<script type="text/javascript">
+    function onRowBound(e) {
+        //$(".k-grid-Edit").find("span").addClass("k-icon k-edit");
+        $(".k-grid-Delete").find("span").addClass("k-icon k-delete");
+    }
+
+
+
+
+    var Variables = {
+
+        DeleteUrl: '@Url.Action("Delete")'
+
+    };
+
+    function ExportData() {
+       
+        window.location.href = "/NewsLetter/ExportToExcel/";
+       
+
+    }
+
+</script>

@@ -1,0 +1,48 @@
+﻿@model LookTechnoCMS.Web.Models.SubscribersViewModel
+@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+@if (culture == "en-us")
+{
+    <h3>News letter</h3>
+    using (Ajax.BeginForm("SubscribeNewsletter", "Common", new AjaxOptions() { UpdateTargetId = "result", InsertionMode = InsertionMode.Replace, OnSuccess = "onSuccess" }))
+    {
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "Your E-mail", @type = "email", required = true, @validationMessage = "Please enter email address" })
+            @Html.Hidden("returnUrl", this.Request.RawUrl)
+        </div>
+        <button type="submit" class="btn btn-default btn-block main-btn">Subscribe Now</button>
+
+    <span id="result" />
+    }
+}
+
+else
+{
+    <h3>النشرة الإخبارية</h3>
+ 
+        using (Ajax.BeginForm("SubscribeNewsletter", "Common", new AjaxOptions() { UpdateTargetId = "result", InsertionMode = InsertionMode.Replace, OnSuccess = "onSuccess" }))
+        {
+        <div class="form-group">
+            @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @placeholder = "بريدك الالكترونى", @type = "email", required = true, @validationMessage = "Please enter email address" })
+            @Html.Hidden("returnUrl", this.Request.RawUrl)
+        </div>
+        <button type="submit" class="btn btn-default btn-block main-btn">إشترك الآن</button>
+
+        <span id="result" />
+        }
+
+
+   
+}
+
+<script>
+
+    function onSuccess() {
+        $("#Email").val('');
+        if (result.ok) {
+            window.location.reload(true);
+        }
+      
+    }
+</script>

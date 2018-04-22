@@ -1,0 +1,63 @@
+﻿@model LookTechnoCMS.Web.Models.CategoryViewModel
+
+@Html.HiddenFor(model => model.Id)
+@Html.HiddenFor(model => Model.DateCreated)
+<div class="tabbable tabbable-custom boxless">
+    <ul class="nav nav-tabs">
+        <li class="active"><a href="#tab_0" data-toggle="tab"> Category English </a></li>
+        <li class=""><a href="#tab_1" data-toggle="tab">Category Arabic</a></li>
+        
+    </ul>
+    <div class="tab-content">
+        <div class="tab-pane active" id="tab_0">
+
+            <div class="form-group">
+                <label class="col-md-3 control-label">Category Name</label>
+                <div class="col-md-4">
+
+
+                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control", @placeholder = "Category Name", required = true, @validationMessage = "Please enter category name" })
+
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Description</label>
+                <div class="col-md-9">
+
+
+                    @Html.TextAreaFor(model => model.Description, new { @class = "form-control", @placeholder = "Description", @rows = "6" })
+
+
+                </div>
+            </div>
+
+        </div>
+        <div class="tab-pane" id="tab_1">
+            <div class="form-group">
+                <label class="col-md-3 control-label">Category Name </label>
+                <div class="col-md-4">
+
+
+                    @Html.TextBoxFor(model => model.NameAr, new { @class = "form-control", @placeholder = "Category Name", required = true, @validationMessage = "Please enter arabic category name" })
+
+
+                </div>
+            </div>
+            <div class="form-group">
+                <label class="col-md-3 control-label">Description</label>
+                <div class="col-md-9">
+
+
+                    @Html.TextAreaFor(model => model.DescriptionAr, new { @class = "form-control", @placeholder = "Description", @rows = "6" })
+
+
+                </div>
+            </div>
+        </div>
+        
+
+        
+        
+    </div>
+</div>

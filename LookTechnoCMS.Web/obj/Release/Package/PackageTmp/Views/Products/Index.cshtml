@@ -1,0 +1,62 @@
+﻿<div class="page-content">
+
+
+    <section>
+        <div class="detail-header">
+            <h3>Products</h3>
+        </div>
+    </section>
+    <div class="container-fluid">
+        <aside class="sidebar col-md-2 col-md-offset-1">
+
+            <hr class="visible-sm visible-xs">
+            <!-- Widget :: Categories -->
+            <div class="widget_categories widget widget__sidebar">
+                @{ Html.RenderAction("Categories", "Products");}
+            </div>
+            <!-- /Widget :: Categories -->
+
+        </aside>
+
+
+            
+        <!-- Project Feed id="productList"-->
+        <div class="col-md-8  col-md-push-1"> 
+            <div class="project-feed project-feed__3cols row" >
+               
+               
+
+            </div>
+            <!-- Project Feed / End -->
+        </div>
+    </div>
+
+
+
+</div>
+<script type="text/javascript">
+   
+    $(function () {
+            
+        
+        $(".CategoryButton").click(function () {
+            var catid = $(this).val();
+            $.ajax({
+                url: '@Url.Action("ProducList", "Products")',
+                dataType: "html",
+                type: "GET",
+                data: {categoryId:catid  },
+                cache: false,
+                contentType: "application/html; charset=utf-8",
+                success: function (result) {
+                    //alert("success");
+                    $(".project-feed").html(result).show();
+                    $('.project-feed').removeAttr("style");
+                },
+                error: function (xhr) {
+                    alert("error");
+                }
+            });
+        });
+    });
+</script>

@@ -1,0 +1,76 @@
+﻿@model IEnumerable<LookTechnoCMS.Web.Models.OurSolutionsViewModel>
+@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+<div class="page-content">
+
+
+    <section>
+        <div class="detail-header">
+
+            @if (culture == "en-us")
+            {
+                <h3>Our Solutions</h3>
+            }
+            else
+            {
+                <h3>حلولنا</h3>
+            }
+        </div>
+        <div class="container">
+            <div class="row">
+                @foreach (var item in Model)
+                {
+
+                    <div class="row">
+                        <div class="col-md-6 wow zoomIn" data-wow-duration="2s" data-wow-delay=".2s" data-wow-offset="80">
+                            <figure class="alignnone">
+                                <img src="@item.Image" alt="">
+                            </figure>
+                        </div>
+                        <div class="col-md-6">
+                            <header class="entry-header">
+                                @if (culture == "en-us")
+                                {
+                                    <h2><a href="#">@item.Name</a></h2>
+                                    <div class="entry-meta">
+                                        @item.MetaKeywords
+                                        @item.MetaTitle
+                                    </div>
+                                }
+                                else
+                                {
+                                    <h2><a href="#">@item.NameAr</a></h2>
+                                    <div class="entry-meta">
+                                        @item.MetaKeywords
+                                        @item.MetaTitle
+                                    </div>
+                                }
+
+                            </header>
+                            @if (culture == "en-us")
+                            {
+                                <div class="excerpt pcontent">
+                                    @item.Description
+                                </div>
+                            }
+                            else
+                            {
+                                <div class="excerpt pcontent">
+                                    @item.DescriptionAr
+                                </div>
+                            }
+
+
+                        </div>
+                    </div>
+                    <hr class="lg" />
+
+                }
+
+            </div>
+        </div>
+    </section>
+
+
+</div>

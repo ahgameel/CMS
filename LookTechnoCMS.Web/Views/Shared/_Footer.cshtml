@@ -1,0 +1,34 @@
+﻿@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+<section class="footer" id="contact">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-12">
+                @{Html.RenderAction("ContactInfo", "Common");}
+                <div class="social-link">
+                    @{Html.RenderAction("SocialLinks", "Common");}
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-12 quick-link">
+                @{Html.RenderAction("QuickLinks", "Common");}
+            </div>
+            <div class="clearfix visible-sm-block"></div>
+            <div class="col-md-4 col-sm-6 col-xs-12 email-form">
+                @{Html.RenderAction("NewsletterWidget", "Common");}
+
+            </div>
+        </div>
+    </div>
+    <div class="bottom-bar">
+        @if (culture == "en-us")
+        {
+            <p>Copyright © 2017 All rights reserved.</p>
+        }
+        else
+        {
+            <p> حقوق النشر © 2017 كل الحقوق محفوظه. </p>
+        }
+     
+    </div>
+</section>

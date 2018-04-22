@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="a80ee7ebe2d54c1791652a2dc4c2cc3b" Name="Diagram1">
+        <EntityTypeShape EntityType="LookTechnoModel.ActivityLog" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.ActivityLogType" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.CellSetting" Width="1.5" PointX="8" PointY="6" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.Menu" Width="1.5" PointX="8" PointY="1.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.NewsletterSubscriber" Width="1.5" PointX="10.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.Page" Width="1.5" PointX="5.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.AspNetRoleClaim" Width="1.5" PointX="10.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.AspNetRole" Width="1.5" PointX="8.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.AspNetUserClaim" Width="1.5" PointX="10.75" PointY="11.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.AspNetUserLogin" Width="1.5" PointX="12.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.AspNetUserRole" Width="1.5" PointX="12.75" PointY="3.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.AspNetUser" Width="1.5" PointX="12.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.MenuModule" Width="1.5" PointX="14.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LookTechnoModel.NewsLetter" Width="1.5" PointX="0.75" PointY="14.75" IsExpanded="true" />
+        <AssociationConnector Association="LookTechnoModel.FK_Menu_Pages" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LookTechnoModel.Cell" Width="1.5" PointX="5.75" PointY="6.375" />
+        <AssociationConnector Association="LookTechnoModel.FK_CellSettings_Cells" />
+        <EntityTypeShape EntityType="LookTechnoModel.Brand" Width="1.5" PointX="3.375" PointY="14.75" />
+        <EntityTypeShape EntityType="LookTechnoModel.Category" Width="1.5" PointX="0.75" PointY="2" />
+        <EntityTypeShape EntityType="LookTechnoModel.HomeSlider" Width="1.5" PointX="9.375" PointY="14.75" />
+        <EntityTypeShape EntityType="LookTechnoModel.Product" Width="1.5" PointX="3" PointY="1.125" />
+        <AssociationConnector Association="LookTechnoModel.FK_Products_Categories" />
+        <EntityTypeShape EntityType="LookTechnoModel.OurService" Width="1.5" PointX="3.375" PointY="9.75" />
+        <EntityTypeShape EntityType="LookTechnoModel.OurSolution" Width="1.5" PointX="5.375" PointY="10.75" />
+        <EntityTypeShape EntityType="LookTechnoModel.GeneralSetting" Width="1.5" PointX="11.375" PointY="14.75" />
+        <EntityTypeShape EntityType="LookTechnoModel.Contatctu" Width="1.5" PointX="0.75" PointY="9.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

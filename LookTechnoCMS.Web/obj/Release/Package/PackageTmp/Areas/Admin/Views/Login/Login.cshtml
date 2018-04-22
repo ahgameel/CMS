@@ -1,0 +1,128 @@
+﻿@using System.Web.Optimization
+
+@model LookTechnoCMS.Web.Areas.Admin.Models.LoginViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<!--[if !IE]><!-->
+<html lang="en" class="no-js">
+<!--<![endif]-->
+<!-- BEGIN HEAD -->
+<head>
+    <meta charset="utf-8" />
+    <title>Looktechno Panel | Login </title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta content="" name="description" />
+    <meta content="" name="author" />
+    <meta name="MobileOptimized" content="320">
+    @Styles.Render("~/Styles/css")
+    @Styles.Render("~/css/themes")
+    <link href="~/Scripts/plugins/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" href="~/Content/favicon.ico" type="image/x-icon" />
+</head>
+<!-- END HEAD -->
+<!-- BEGIN BODY -->
+<body class="login">
+    <!-- BEGIN LOGO -->
+    <div class="logo">
+        <img src="~/Content/img/logo-big.png" alt="" />
+    </div>
+    <!-- END LOGO -->
+    <!-- BEGIN LOGIN -->
+    <div class="content">
+        <!-- BEGIN LOGIN FORM -->
+@using (Html.BeginForm("Login", "Login", new { returnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "login-form" }))
+{
+
+   
+        <h3 class="form-title">Login to your account</h3>
+    <div class="alert alert-error hide">
+        <button class="close" data-dismiss="alert"></button>
+        <span>Enter any username and password.</span>
+    </div>
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <!--ie8, ie9 does not support html5 placeholder, so we just show field title for that-->
+            <label class="control-label visible-ie8 visible-ie9">Username</label>
+            <div class="input-icon">
+                <i class="icon-user"></i>
+                @*<input class="form-control placeholder-no-fix" type="text" autocomplete="off" placeholder="Username" name="username" />*@
+                @Html.TextBoxFor(m => m.UserName, new { @name = "username", placeholder = "Username",@type="text", @class = "form-control placeholder-no-fix" })
+                @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="control-label visible-ie8 visible-ie9">Password</label>
+            <div class="input-icon">
+                <i class="icon-lock"></i>
+                @*<input class="form-control placeholder-no-fix" type="password" autocomplete="off" placeholder="Password" name="password" />*@
+                @Html.TextBoxFor(m => m.Password, new { @name = "password", placeholder = "Password", @type = "password", @class = "form-control placeholder-no-fix" })
+                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-actions">
+            <label class="checkbox">
+                @*<input type="checkbox" name="remember" value="1" /> Remember me*@
+                @Html.EditorFor(m => m.RememberMe, new { @name = "remember" })
+                @Html.LabelFor(m => m.RememberMe)
+            </label>
+            <button type="submit" class="btn blue pull-right">
+                Login <i class="m-icon-swapright m-icon-white"></i>
+            </button>
+        </div>
+    
+
+    
+}
+        
+       
+    </div>
+    <!-- END LOGIN -->
+    <!-- BEGIN COPYRIGHT -->
+    <div class="copyright">
+        2017 &copy; Looktechno - Panel.
+    </div>
+    <!-- END COPYRIGHT -->
+    <!-- BEGIN JAVASCRIPTS(Load javascripts at bottom, this will reduce page load time) -->
+    <!-- BEGIN CORE PLUGINS -->
+    <!--[if lt IE 9]>
+    <script src="assets/plugins/respond.min.js"></script>
+    <script src="assets/plugins/excanvas.min.js"></script>
+    <![endif]-->
+    @Scripts.Render("~/bundles/scripts/jquery")
+    @Scripts.Render("~/bundles/scripts/query-migrate")
+    @Scripts.Render("~/bundles/jquery-ui")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/bootstrap-hover-dropdown")
+    @Scripts.Render("~/bundles/jquery-slimscroll")
+    @Scripts.Render("~/bundles/jqueryblockui")
+    @Scripts.Render("~/bundles/jquerycookie")
+    @Scripts.Render("~/bundles/uniform")
+    <!-- END CORE PLUGINS -->
+    <!-- BEGIN PAGE LEVEL PLUGINS -->
+    @Scripts.Render("~/bundles/jquery-validation")
+    @Scripts.Render("~/bundles/backstretch")
+    @Scripts.Render("~/bundles/select2")
+
+    <!-- END PAGE LEVEL PLUGINS -->
+    <!-- BEGIN PAGE LEVEL SCRIPTS -->
+    @Scripts.Render("~/bundles/app")
+    @Scripts.Render("~/bundles/login-soft")
+
+    <!-- END PAGE LEVEL SCRIPTS -->
+    <script>
+        jQuery(document).ready(function () {
+            App.init();
+            Login.init();
+        });
+    </script>
+    <!-- END JAVASCRIPTS -->
+  
+</body>
+<!-- END BODY -->
+</html>

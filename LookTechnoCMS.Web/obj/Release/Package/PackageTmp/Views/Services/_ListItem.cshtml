@@ -1,0 +1,12 @@
+﻿@model LookTechnoCMS.Web.Models.OurServicesViewModel
+@{
+    var culture = System.Threading.Thread.CurrentThread.CurrentUICulture.Name.ToLowerInvariant();
+}
+@if (culture == "en-us")
+{
+    <p>@Model.Name</p>
+}
+else
+{
+    <p>@Model.NameAr</p>
+}
